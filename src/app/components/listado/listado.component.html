@@ -1,1 +1,20 @@
-<p>listado works!</p>
+<main class="container">
+    <h1>Pokédex</h1>
+
+    <div class="card-container">
+        <!-- Tarjeta Pokemon -->
+        <div *ngFor="let pokemon of pokemons" class="card">
+            <img src="{{getImagenPokemon(pokemon)}}" alt="{{pokemon.name}}">
+            <div class="card-content">
+                <h3>{{(pokemon.name)}}</h3>
+                <a href="{{getUrlDetallesPokemon(pokemon)}}">Ver detalles</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<div class="paginacion">
+    <button (click)="prev()" [disabled]="prevPage == null">Anterior</button>
+    <button (click)="next()" [disabled]="nextPage == null">Siguiente</button>
+</div>

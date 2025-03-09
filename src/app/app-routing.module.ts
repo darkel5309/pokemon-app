@@ -4,10 +4,8 @@ import { DetallesComponent } from './components/detalles/detalles.component';
 import { ListadoComponent } from './components/listado/listado.component';
 
 const routes: Routes = [
-  {path: 'home', component: ListadoComponent},
-  {path: 'detalles/:id', component: DetallesComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'home'},
-  {path: '**', pathMatch: 'full', redirectTo: 'home'},
+  {path:"", component: ListadoComponent},
+  {path:"detail/:id", component: DetallesComponent}
 ];
 
 @NgModule({
