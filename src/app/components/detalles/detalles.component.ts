@@ -174,17 +174,4 @@ export class DetallesComponent implements OnInit {
     }
     return urlImage + pokemonDetail?.id + ".png";
   }
-
-  playAudio(audio: HTMLAudioElement): void {
-    audio.play();
-  }
-
-  pauseAudio(audio: HTMLAudioElement): void {
-    audio.pause();
-  }
-
-  stopAudio(audio: HTMLAudioElement): void {
-    audio.pause();
-    audio.currentTime = 0;
-  }
 }
