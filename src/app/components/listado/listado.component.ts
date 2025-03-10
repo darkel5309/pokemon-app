@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Pokemon } from '../../models/pokemon';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-listado',
@@ -12,10 +11,12 @@ export class ListadoComponent implements OnInit {
 
   private _pokemonService: PokemonService;
   public pokemons: Pokemon[] = [];
+  public filteredPokemons: Pokemon[] = [];
   public nextPage: string = "";
   public prevPage: string = "";
+  public searchQuery: string = "";
 
-  constructor(pokemonService: PokemonService, location: Location) {
+  constructor(pokemonService: PokemonService) {
     this._pokemonService = pokemonService;
   }
 
@@ -24,9 +25,18 @@ export class ListadoComponent implements OnInit {
       (data: any) => {
         let { next, previous, results } = data;
         this.pokemons = results;
+        this.filteredPokemons = this.pokemons;
         this.nextPage = next;
         this.prevPage = previous;
       }
+    );
+  }
+
+  // Buscar un pokémon
+  public buscarPokemon(): void {
+    const query = this.searchQuery.toLowerCase();
+    this.filteredPokemons = this.pokemons.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(query)
     );
   }
 
