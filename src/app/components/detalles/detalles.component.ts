@@ -37,7 +37,6 @@ export class DetallesComponent implements OnInit {
   public specie: Especie | null = null;
   public stats: Estadistica | null = null;
   public id: number = 0;
-  public cries: string = "";
 
   constructor(location: Location, pokemonService: PokemonService, route: ActivatedRoute, moveService: MovimientoService, typeService: TipoService, abilityService: HabilidadService, specieService: EspecieService, statsService: EstadisticaService) {
     this._pokemonService = pokemonService;
@@ -60,7 +59,6 @@ export class DetallesComponent implements OnInit {
       this._pokemonService.getDetail(this.id).subscribe(
         (data: any) => {
           this.pokemon = data;
-          this.cries = data.cries.legacy;
 
           // Obtener estadísticas
           this._statsService.getEstadisticas(this.id).subscribe(
@@ -96,7 +94,6 @@ export class DetallesComponent implements OnInit {
               this.abilities.push(ability);
             }
           );
-
         }
       );
 
@@ -111,7 +108,6 @@ export class DetallesComponent implements OnInit {
               this.types.push(type);
             }
           )
-
         }
       );
 
@@ -129,7 +125,6 @@ export class DetallesComponent implements OnInit {
         }
       );
     }
-
   }
 
   getTypeImageById(id: number): string {

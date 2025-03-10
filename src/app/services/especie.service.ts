@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 export class EspecieService {
 
   private _httpClient: HttpClient;
-      
-  constructor(httpClient: HttpClient){
+
+  constructor(httpClient: HttpClient) {
     this._httpClient = httpClient;
   }
 
-  public getDetail(url: string): Observable<any>{
+  public getDetail(url: string): Observable<any> {
     return this._httpClient.get(url);
   }
 }

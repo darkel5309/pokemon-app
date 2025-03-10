@@ -54,8 +54,8 @@ h1 {
 }
 
 .card-content h3::first-letter {
-    text-transform: capitalize;
-  }
+  text-transform: capitalize;
+}
 
 .card-content a {
   display: inline-block;

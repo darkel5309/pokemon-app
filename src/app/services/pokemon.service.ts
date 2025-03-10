@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class PokemonService {
 
   private _urlBase: string = "https://pokeapi.co/api/v2/pokemon";
@@ -19,7 +18,7 @@ export class PokemonService {
     return this._httpClient.get(urlBase);
   }
 
-  public getDetail(id: number): Observable<any>{
+  public getDetail(id: number): Observable<any> {
     return this._httpClient.get(this._urlBase + "/" + id);
   }
 }

@@ -1,11 +1,14 @@
 <div *ngIf="pokemon && specie" class="container">
+  <!-- Nombre pokémon -->
   <h1>{{specie.name}}</h1>
 
+  <!-- Navegación -->
   <div class="navigation-buttons">
     <a *ngIf="id > 1" href="{{ goPrev() }}" class="button previous-button">Anterior</a>
     <a *ngIf="id < 1025" href="{{ goNext() }}" class="button next-button">Siguiente</a>
   </div>
 
+  <!-- Imágenes -->
   <div class="detail-image image-container ">
     <img src="{{getImagenPokemon(pokemon)}}" alt="Frontal">
     <img src="{{getImagenPokemon(pokemon, true)}}" alt="Shiny">
@@ -15,8 +18,10 @@
     <img *ngFor="let type of types" src="{{type.image}}" alt="{{type.name}}" id="tipo">
   </div>
 
+  <!-- Descripción -->
   <p>{{specie.desc}}</p>
 
+  <!-- Atributos -->
   <h2>Atributos</h2>
 
   <div class="detail-item">
@@ -28,6 +33,7 @@
     </div>
   </div>
 
+  <!-- Marcas -->
   <h2>Marcas</h2>
 
   <div class="checkbox-container">
@@ -43,6 +49,7 @@
     </label>
   </div>
 
+  <!-- Estadísticas -->
   <div class="table-container">
     <h2>Estadísticas</h2>
     <table>
@@ -81,6 +88,7 @@
     </table>
   </div>
 
+  <!-- Habilidades -->
   <div class="table-container">
     <h2>Habilidades</h2>
     <table>
@@ -99,6 +107,7 @@
     </table>
   </div>
 
+  <!-- Movimientos -->
   <div class="table-container">
     <h2>Movimientos que puede aprender</h2>
     <table>
@@ -123,5 +132,6 @@
     </table>
   </div>
 
+  <!-- Navegación -->
   <a href="#" class="back-button">Volver</a>
 </div>

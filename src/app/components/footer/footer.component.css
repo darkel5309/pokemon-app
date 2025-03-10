@@ -49,7 +49,8 @@ footer h2 {
   color: #000;
 }
 
-.descripcion p, .feedback p {
+.descripcion p,
+.feedback p {
   text-align: justify;
   font-size: 14px;
   color: white;

@@ -8,9 +8,8 @@ import { Location } from '@angular/common';
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
-
 export class ListadoComponent implements OnInit {
-  
+
   private _pokemonService: PokemonService;
   public pokemons: Pokemon[] = [];
   public nextPage: string = "";
@@ -31,6 +30,7 @@ export class ListadoComponent implements OnInit {
     );
   }
 
+  // Página siguiente
   public next(): void {
     this._pokemonService.getAllPokemon(this.nextPage).subscribe(
       (data: any) => {
@@ -42,6 +42,7 @@ export class ListadoComponent implements OnInit {
     );
   }
 
+  // Página anterior
   public prev(): void {
     this._pokemonService.getAllPokemon(this.prevPage).subscribe(
       (data: any) => {
@@ -53,8 +54,7 @@ export class ListadoComponent implements OnInit {
     );
   }
 
-  public getData(nextPage: string): void { }
-
+  // Obtener imagen pokémon
   public getImagenPokemon(pokemon: Pokemon): string {
     const urlImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
     const urlSplitted = pokemon.url.split("/");
@@ -63,6 +63,7 @@ export class ListadoComponent implements OnInit {
     return urlImage + "/" + id + ".png";
   }
 
+  // Obtener URL detalles
   public getUrlDetallesPokemon(pokemon: Pokemon): string {
     const urlSplitted = pokemon.url.split("/");
     return "/detail/" + urlSplitted[urlSplitted.length - 2];
