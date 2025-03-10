@@ -1,10 +1,14 @@
 <main class="container">
   <h1>Pokédex</h1>
+  <!-- Campo de búsqueda -->
+  <div class="search-container">
+    <input type="text" placeholder="Buscar Pokémon" [(ngModel)]="searchQuery" (input)="buscarPokemon()">
+  </div>
 
   <!-- Contenedor tarjetas -->
   <div class="card-container">
     <!-- Tarjeta pokémon -->
-    <div *ngFor="let pokemon of pokemons" class="card">
+    <div *ngFor="let pokemon of filteredPokemons" class="card">
       <img src="{{getImagenPokemon(pokemon)}}" alt="{{pokemon.name}}">
       <div class="card-content">
         <!-- Nombre -->

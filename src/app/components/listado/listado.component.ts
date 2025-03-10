@@ -46,6 +46,7 @@ export class ListadoComponent implements OnInit {
       (data: any) => {
         let { next, previous, results } = data;
         this.pokemons = results;
+        this.filteredPokemons = this.pokemons;
         this.nextPage = next;
         this.prevPage = previous;
       }
@@ -58,6 +59,7 @@ export class ListadoComponent implements OnInit {
       (data: any) => {
         let { next, previous, results } = data;
         this.pokemons = results;
+        this.filteredPokemons = this.pokemons;
         this.nextPage = next;
         this.prevPage = previous;
       }
