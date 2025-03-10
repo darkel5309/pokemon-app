@@ -1,7 +1,12 @@
-.mat-toolbar{
-    background-color: rgb(255, 89, 89);
+header .header-content {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(231, 99, 99);
 }
 
-img:hover{
-    cursor: pointer;
+header .header-content img{
+  padding: 10px;
 }
