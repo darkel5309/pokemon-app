@@ -11,6 +11,8 @@ import { Habilidad } from '../../models/habilidad';
 import { HabilidadService } from '../../services/habilidad.service';
 import { EspecieService } from '../../services/especie.service';
 import { Especie } from '../../models/especie';
+import { EstadisticaService } from '../../services/estadistica.service';
+import { Estadistica } from '../../models/estadistica';
 
 @Component({
   selector: 'app-detalles',
@@ -26,16 +28,18 @@ export class DetallesComponent implements OnInit {
   private _typeService: TipoService;
   private _abilityService: HabilidadService;
   private _specieService: EspecieService;
+  private _statsService: EstadisticaService;
   private _route: ActivatedRoute;
   public pokemon: Detalles | null = null;
   public moves: Movimiento[] = [];
   public types: Tipo[] = [];
   public abilities: Habilidad[] = [];
   public specie: Especie | null = null;
+  public stats: Estadistica | null = null;
   public id: number = 0;
   public cries: string = "";
 
-  constructor(location: Location, pokemonService: PokemonService, route: ActivatedRoute, moveService: MovimientoService, typeService: TipoService, abilityService: HabilidadService, specieService: EspecieService) {
+  constructor(location: Location, pokemonService: PokemonService, route: ActivatedRoute, moveService: MovimientoService, typeService: TipoService, abilityService: HabilidadService, specieService: EspecieService, statsService: EstadisticaService) {
     this._pokemonService = pokemonService;
     this._route = route;
     this._location = location;
@@ -43,6 +47,7 @@ export class DetallesComponent implements OnInit {
     this._typeService = typeService;
     this._abilityService = abilityService;
     this._specieService = specieService;
+    this._statsService = statsService;
   }
 
   public ngOnInit(): void {
@@ -56,6 +61,13 @@ export class DetallesComponent implements OnInit {
         (data: any) => {
           this.pokemon = data;
           this.cries = data.cries.legacy;
+
+          // Obtener estadísticas
+          this._statsService.getEstadisticas(this.id).subscribe(
+            (data: any) => {
+              this.stats = new Estadistica(data.stats[0].base_stat, data.stats[1].base_stat, data.stats[2].base_stat, data.stats[3].base_stat, data.stats[4].base_stat, data.stats[5].base_stat);
+            }
+          );
         }
       );
 

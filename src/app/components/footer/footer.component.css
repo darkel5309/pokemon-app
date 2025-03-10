@@ -9,7 +9,7 @@ footer {
 
 footer h2 {
   color: #ffcc00;
-  margin: 20px 0px 10px 0px;
+  margin: 15px 0px 10px 0px;
   font-size: 22px;
 }
 
@@ -50,7 +50,7 @@ footer h2 {
 }
 
 .descripcion p, .feedback p {
-  text-align: left;
+  text-align: justify;
   font-size: 14px;
   color: white;
 }
@@ -69,5 +69,5 @@ footer h2 {
   font-size: 16px;
   color: #ffcc00;
   font-weight: bold;
-  margin: 9px 0px 2px 0px;
+  margin: 0px 0px 2px 0px;
 }

@@ -49,9 +49,14 @@ h1 {
 }
 
 .image-container img {
-    width: 200px;
+    width: 225px;
     height: auto;
     border-radius: 10px;
+}
+
+.image-container #tipo {
+  width: 100px;
+  border-radius: 10px;
 }
 
 /* Estilos para los Datos de la Especie */

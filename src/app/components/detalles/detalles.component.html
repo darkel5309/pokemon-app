@@ -12,10 +12,8 @@
   </div>
 
   <div class="detail-image image-container">
-    <img *ngFor="let type of types" src="{{type.image}}" alt="{{type.name}}">
+    <img *ngFor="let type of types" src="{{type.image}}" alt="{{type.name}}" id="">
   </div>
-
-
 
   <p>{{specie.desc}}</p>
 
@@ -23,10 +21,10 @@
 
   <div class="detail-item">
     <div class="detail-attribute">
-      <p>Altura: {{pokemon.height}} m </p>
+      <p>Altura: {{pokemon.height}} metros </p>
     </div>
     <div class="detail-attribute">
-      <p>Peso: {{pokemon.weight}} kg </p>
+      <p>Peso: {{pokemon.weight}} kilos </p>
     </div>
   </div>
 
@@ -45,7 +43,43 @@
     </label>
   </div>
 
-
+  <div class="table-container">
+    <h2>Estadísticas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Estadística</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HP</td>
+          <td>{{stats?.hp}}</td>
+        </tr>
+        <tr>
+          <td>Ataque</td>
+          <td>{{stats?.attack}}</td>
+        </tr>
+        <tr>
+          <td>Defensa</td>
+          <td>{{stats?.defense}}</td>
+        </tr>
+        <tr>
+          <td>Ataque Especial</td>
+          <td>{{stats?.specialAttack}}</td>
+        </tr>
+        <tr>
+          <td>Defensa Especial</td>
+          <td>{{stats?.specialDefense}}</td>
+        </tr>
+        <tr>
+          <td>Velocidad</td>
+          <td>{{stats?.speed}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="table-container">
     <h2>Habilidades</h2>
@@ -72,7 +106,7 @@
         <tr>
           <th>#</th>
           <th>Movimiento</th>
-          <th>Precsión</th>
+          <th>Precisión</th>
           <th>Poder</th>
           <th>Descripción</th>
         </tr>
